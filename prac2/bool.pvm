@@ -1,0 +1,59 @@
+   0   DSP      3	X,Y,Z are 1,2,3 respectively
+   2   PRNS     "   X     Y     Z     X OR !Y AND Z\n"
+   4   LDA      0
+   6   LDC      0
+   8   STO			X = 0
+   9   LDA      1
+  11   LDC      0
+  13   STO			Y = 0
+  14   LDA      2
+  16   LDC      0
+  18   STO			Z = 0
+  19   LDA      0
+  21   LDV
+  22   PRNB			X = false
+  23   LDA      1
+  25   LDV
+  26   PRNB			Y = false
+  27   LDA      2
+  29   LDV
+  30   PRNB			Z = false
+  31   LDA      0
+  33   LDV			X = false
+  34   LDA      1
+  36   LDV			Y = false
+  37   NOT			Y = true
+  38   LDA      2
+  40   LDV			Z = false
+  41   AND		
+  42   OR			
+  43   PRNB			true
+  44   PRNS     "\n"	true
+  46   LDA      2	Z = false
+  48   LDA      2
+  50   LDV			
+  51   NOT
+  52   STO			Z = true (!Z)
+  53   LDA      2
+  55   LDV			
+  56   NOT
+  57   BZE      19	If Z = true
+  59   LDA      1
+  61   LDA      1
+  63   LDV
+  64   NOT
+  65   STO			Y = false
+  66   LDA      1
+  68   LDV			
+  69   NOT
+  70   BZE      14	If Y = true
+  72   LDA      0
+  74   LDA      0
+  76   LDV			X = false
+  77   NOT
+  78   STO			X = true
+  79   LDA      0
+  81   LDV
+  82   NOT			
+  83   BZE      9	If Z = false
+  85   HALT
