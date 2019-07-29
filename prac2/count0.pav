@@ -1,4 +1,4 @@
-id Main() {
+void Main() {
 // Read a list of positive numbers and determine the frequency
 // of occurrence of each
 // P.D. Terry, Rhodes University, 2016
