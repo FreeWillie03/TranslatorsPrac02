@@ -1,0 +1,95 @@
+   0   DSP      4
+   2   LDA      0
+   4   LDC      2000         ; max number to be tested
+   6   STO
+   7   LDA      2
+   9   LDC      2000
+  11   ANEW 
+  12   STO
+  13   LDA      3
+  15   LDC      0
+  17   STO
+  18   LDA      3
+  20   LDV 
+  21   LDA      0
+  23   LDV 
+  24   CLT 
+  25   BZE      48
+  27   LDA 	    2
+  29   LDV
+  30   LDA 		3
+  32   LDV 
+  33   LDXA 
+  34   LDC 		0
+  36   STO
+  37   LDA      3
+  39   LDA      3
+  41   LDV
+  42   LDC      1
+  44   ADD
+  45   STO
+  46   BRN 		18
+  48   PRNS     "First number? "
+  50   LDA      1
+  52   INPI 
+  53   LDA      1
+  55   LDV
+  56   LDC      0
+  58   CGT      
+  59   BZE      87
+  61   LDA 		2
+  63   LDV
+  64   LDA 		1
+  66   LDV 
+  67   LDXA 
+  68   LDA 		2
+  70   LDV
+  71   LDA 		1
+  73   LDV
+  74   LDXA 
+  75   LDV   
+  76   LDC      1
+  78   ADD
+  79   STO  
+  80   PRNS     "Next number(<= 0 Stops), \n "
+  82   LDA      1
+  84   INPI 
+  85   BRN      53
+  87   LDA 		3
+  89   LDC      0
+  91   STO
+  92   LDA      3
+  94   LDV 
+  95   LDA      0
+  97   LDV 
+  98   CLT 
+  99   BZE      142
+ 101   LDA 		2
+ 103   LDV
+ 104   LDA 		3
+ 106   LDV 
+ 107   LDXA 
+ 108   LDV
+ 109   LDC 		0
+ 111   CGT   
+ 112   BZE      131
+ 114   LDA      3
+ 116   LDV     
+ 117   PRNI    
+ 118   PRNS     "  "
+ 120   LDA 		2
+ 122   LDV
+ 123   LDA 		3
+ 125   LDV 
+ 126   LDXA
+ 127   LDV
+ 128   PRNI 
+ 129   PRNS     " \n"
+ 131   LDA      3
+ 133   LDA      3
+ 135   LDV
+ 136   LDC      1
+ 138   ADD
+ 139   STO
+ 140   BRN 		92
+ 142   HALT   
