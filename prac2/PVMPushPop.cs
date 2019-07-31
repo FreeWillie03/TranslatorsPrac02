@@ -443,6 +443,18 @@ namespace Assem {
             results.Write(Pop(), 0);
             if (tracing) results.WriteLine();
             break;
+           case PVM.inpc:          // character input
+            adr = Pop();
+            if (InBounds(adr)) {
+              mem[adr] = data.ReadChar();
+              if (data.Error()) ps = badData;
+            }
+            break;
+          case PVM.prnc:          // character output
+            if (tracing) results.Write(padding);
+            results.Write((char) Pop(), 0);
+            if (tracing) results.WriteLine();
+            break;
           case PVM.inpb:          // boolean input
             adr = Pop();
             if (InBounds(adr)) {
@@ -562,8 +574,8 @@ namespace Assem {
           case PVM.stl_2:         // pop to local variable 2
           case PVM.stl_3:         // pop to local variable 3
           case PVM.stoc:          // character checked store
-          case PVM.inpc:          // character input
-          case PVM.prnc:          // character output
+         // case PVM.inpc:          // character input
+         // case PVM.prnc:          // character output
           case PVM.cap:           // toUpperCase
           case PVM.low:           // toLowerCase
           case PVM.islet:         // isLetter
