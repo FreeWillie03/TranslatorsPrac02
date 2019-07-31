@@ -443,18 +443,7 @@ namespace Assem {
             results.Write(Pop(), 0);
             if (tracing) results.WriteLine();
             break;
-           case PVM.inpc:          // character input
-            adr = Pop();
-            if (InBounds(adr)) {
-              mem[adr] = data.ReadChar();
-              if (data.Error()) ps = badData;
-            }
-            break;
-          case PVM.prnc:          // character output
-            if (tracing) results.Write(padding);
-            results.Write((char) Pop(), 0);
-            if (tracing) results.WriteLine();
-            break;
+          
           case PVM.inpb:          // boolean input
             adr = Pop();
             if (InBounds(adr)) {
@@ -555,32 +544,113 @@ namespace Assem {
             HeapDump(results, pcNow);
             break;
           case PVM.ldc_0:         // push constant 0
+             Push(0);
+             break;
           case PVM.ldc_1:         // push constant 1
+             Push(1);
+             break;
           case PVM.ldc_2:         // push constant 2
+             Push(2);
+             break;
           case PVM.ldc_3:         // push constant 3
+             Push(3);
+             break;
           case PVM.lda_0:         // push local address 0
+             adr = cpu.fp - 1 - 0;
+             if (InBounds(adr)) Push(adr);
+             break;
           case PVM.lda_1:         // push local address 1
+             adr = cpu.fp - 1 - 1;
+             if (InBounds(adr)) Push(adr);
+             break;
           case PVM.lda_2:         // push local address 2
+             adr = cpu.fp - 1 - 2;
+             if (InBounds(adr)) Push(adr);
+             break;
           case PVM.lda_3:         // push local address 3
+             adr = cpu.fp - 1 - 3;
+             if (InBounds(adr)) Push(adr);
+             break;
           case PVM.ldl:           // push local value
+             int next1 = Next();
+             adr = cpu.fp - 1 - next1;
+             if (InBounds(adr)) Push(mem[adr]);
+             break;
           case PVM.ldl_0:         // push value of local variable 0
+             adr = cpu.fp - 1 - 0;
+             if (InBounds(adr)) Push(mem[adr]);
+             break;
           case PVM.ldl_1:         // push value of local variable 1
+             adr = cpu.fp - 1 - 1;
+             if (InBounds(adr)) Push(mem[adr]);
+             break;
           case PVM.ldl_2:         // push value of local variable 2
+             adr = cpu.fp - 1 - 2;
+             if (InBounds(adr)) Push(mem[adr]);
+             break;
           case PVM.ldl_3:         // push value of local variable 3
+             adr = cpu.fp - 1 - 3;
+             if (InBounds(adr)) Push(mem[adr]);
+             break;
           case PVM.stl:           // store local value
+             tos = Pop(); adr = Next();
+             if (InBounds(adr)) mem[adr] = tos;
+             break;
           case PVM.stlc:          // store local value
           case PVM.stl_0:         // pop to local variable 0
+             tos = Pop(); adr = cpu.fp - 1 - 0;
+             if (InBounds(adr)) mem[adr] = tos;
+             break;
           case PVM.stl_1:         // pop to local variable 1
+              tos = Pop(); adr = cpu.fp - 1 - 1;
+              if (InBounds(adr)) mem[adr] = tos;
+              break;
           case PVM.stl_2:         // pop to local variable 2
+              tos = Pop(); adr = cpu.fp - 1 - 2;
+              if (InBounds(adr)) mem[adr] = tos;
+              break;
           case PVM.stl_3:         // pop to local variable 3
-          case PVM.stoc:          // character checked store
-         // case PVM.inpc:          // character input
-         // case PVM.prnc:          // character output
-          case PVM.cap:           // toUpperCase
+              tos = Pop(); adr = cpu.fp - 1 - 3;
+              if (InBounds(adr)) mem[adr] = tos;
+              break;
+           case PVM.stoc:          // character checked store
+           case PVM.inpc:          // character input
+              adr = Pop();
+              if (InBounds(adr)) {
+                 mem[adr] = data.ReadChar();
+                 if (data.Error()) ps = badData;
+               }
+              break;
+            case PVM.prnc:          // character output
+               if (tracing) results.Write(padding);
+               results.Write((char)Pop(), 0);
+               if (tracing) results.WriteLine();
+               break;
+            case PVM.cap:           // toUpperCase
+            int numb = Pop();
+            if (numb < 0 || numb > 255) ps = badData;
+            else {
+               if (numb >= 97 && numb <= 122) numb = numb - 32;
+               Push(numb);
+            }
+            break;
           case PVM.low:           // toLowerCase
+            int numb2 = Pop();
+            if (numb2 < 0 || numb2 > 255) ps = badData;
+            else {
+                if (numb2 >= 65 && numb2 <= 90) numb2 = numb2 + 32;
+                Push(numb2);
+             }
+             break;
           case PVM.islet:         // isLetter
           case PVM.inc:           // ++
+            int numb3 = Pop();
+            Push(numb3 + 1);
+            break;
           case PVM.dec:           // --
+            int numb4 = Pop();
+            Push(numb4 - 1);
+            break;
           default:                // unrecognized opcode
             ps = badOp;
             break;
