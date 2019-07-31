@@ -83,7 +83,7 @@
  125   LDV 
  126   LDXA
  127   LDV
- 128   PRNI 
+ 128   PRNI
  129   PRNS     " \n"
  131   LDA      1           
  133   LDA      1

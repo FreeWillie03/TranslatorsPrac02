@@ -85,7 +85,11 @@ BEGIN
   {  125 } LDV     
   {  126 } LDXA    
   {  127 } LDV     
+<<<<<<< HEAD
   {  128 } PRNI    
+=======
+  {  128 } PRNC    
+>>>>>>> 520a4d9600df3a1db62e902e7c44cd55d886a7e0
   {  129 } PRNS     " \n"
   {  131 } LDA      1
   {  133 } LDA      1

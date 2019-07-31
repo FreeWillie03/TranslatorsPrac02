@@ -1,95 +1,102 @@
    0   DSP      4
-   2   LDA      0
-   4   LDC      2000         ; max number to be tested
-   6   STO
-   7   LDA      2
-   9   LDC      2000
-  11   ANEW 
-  12   STO
-  13   LDA      3
-  15   LDC      0
-  17   STO
-  18   LDA      3
+   2   PRNS     "What is the largest item you will add to the list? (<35000)"
+   4   LDA      0
+   6   INPI         ; max number to be tested
+   7   LDA      0
+   9   LDA      0
+  11   LDV      
+  12   LDC      1 
+  14   ADD 
+  15   STO    
+  16   LDA      2
+  18   LDA      0
   20   LDV 
-  21   LDA      0
-  23   LDV 
-  24   CLT 
-  25   BZE      48
-  27   LDA 	    2
-  29   LDV
-  30   LDA 		3
-  32   LDV 
-  33   LDXA 
-  34   LDC 		0
-  36   STO
-  37   LDA      3
-  39   LDA      3
-  41   LDV
-  42   LDC      1
-  44   ADD
-  45   STO
-  46   BRN 		18
-  48   PRNS     "First number? "
-  50   LDA      1
-  52   INPI 
-  53   LDA      1
-  55   LDV
-  56   LDC      0
-  58   CGT      
-  59   BZE      87
-  61   LDA 		2
-  63   LDV
-  64   LDA 		1
-  66   LDV 
-  67   LDXA 
-  68   LDA 		2
-  70   LDV
-  71   LDA 		1
+  21   ANEW 
+  22   STO
+  23   LDA      3
+  25   LDC      0
+  27   STO
+  28   LDA      3      
+  30   LDV 
+  31   LDA      0
+  33   LDV 
+  34   CLT 
+  35   BZE      58       
+  37   LDA 	    2
+  39   LDV
+  40   LDA 		3
+  42   LDV 
+  43   LDXA 
+  44   LDC 		0
+  46   STO
+  47   LDA      3
+  49   LDA      3
+  51   LDV
+  52   LDC      1
+  54   ADD
+  55   STO
+  56   BRN 		28       
+  58   PRNS     "First number? "       
+  60   LDA      1
+  62   INPI 
+  63   LDA      1       
+  65   LDV
+  66   LDC      0
+  68   CGT      
+  69   BZE      97        
+  71   LDA 		2
   73   LDV
-  74   LDXA 
-  75   LDV   
-  76   LDC      1
-  78   ADD
-  79   STO  
-  80   PRNS     "Next number(<= 0 Stops), \n "
-  82   LDA      1
-  84   INPI 
-  85   BRN      53
-  87   LDA 		3
-  89   LDC      0
-  91   STO
-  92   LDA      3
-  94   LDV 
-  95   LDA      0
-  97   LDV 
-  98   CLT 
-  99   BZE      142
- 101   LDA 		2
- 103   LDV
- 104   LDA 		3
- 106   LDV 
- 107   LDXA 
- 108   LDV
- 109   LDC 		0
- 111   CGT   
- 112   BZE      131
- 114   LDA      3
- 116   LDV     
- 117   PRNI    
- 118   PRNS     "  "
- 120   LDA 		2
- 122   LDV
- 123   LDA 		3
- 125   LDV 
- 126   LDXA
- 127   LDV
- 128   PRNI 
- 129   PRNS     " \n"
- 131   LDA      3
- 133   LDA      3
- 135   LDV
- 136   LDC      1
- 138   ADD
- 139   STO
- 140   BRN 		92
- 142   HALT   
+  74   LDA 		1
+  76   LDV 
+  77   LDXA 
+  78   LDA 		2
+  80   LDV
+  81   LDA 		1
+  83   LDV
+  84   LDXA 
+  85   LDV   
+  86   LDC      1
+  88   ADD
+  89   STO  
+  90   PRNS     "Next number(<= 0 Stops), \n "
+  92   LDA      1
+  94   INPI 
+  95   BRN      63        
+  97   LDA 		3         
+  99   LDC      0
+ 101   STO
+ 102   LDA      3      
+ 104   LDV 
+ 105   LDA      0
+ 107   LDV 
+ 108   CLT 
+ 109   BZE      152      
+ 111   LDA 		2
+ 113   LDV
+ 114   LDA 		3
+ 116   LDV 
+ 117   LDXA 
+ 118   LDV
+ 119   LDC 		0
+ 121   CGT   
+ 122   BZE      141      
+ 124   LDA      3
+ 126   LDV     
+ 127   PRNI    
+ 128   PRNS     "  "
+ 130   LDA 		2
+ 132   LDV
+ 133   LDA 		3
+ 135   LDV 
+ 136   LDXA
+ 137   LDV
+ 138   PRNI 
+ 139   PRNS     " \n"
+ 141   LDA      3           
+ 143   LDA      3
+ 145   LDV
+ 146   LDC      1
+ 148   ADD
+ 149   STO
+ 150   BRN 		102            
+ 152   HALT   
