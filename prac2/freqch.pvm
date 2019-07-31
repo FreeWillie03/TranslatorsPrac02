@@ -1,0 +1,95 @@
+   0   DSP      4
+   2   LDA      0
+   4   LDC      256
+   6   STO 
+   7   LDA      2
+   9   LDA      0
+  11   LDV 
+  12   ANEW 
+  13   STO
+  14   LDA      3
+  16   LDC      0
+  18   STO
+  19   LDA      3      
+  21   LDV 
+  22   LDA      0
+  24   LDV 
+  25   CLT 
+  26   BZE      49       
+  28   LDA 	    2
+  30   LDV
+  31   LDA 		3
+  33   LDV 
+  34   LDXA 
+  35   LDC 		0
+  37   STO
+  38   LDA      3
+  40   LDA      3
+  42   LDV
+  43   LDC      1
+  45   ADD
+  46   STO
+  47   BRN 		19       
+  49   PRNS     "First Char? "       
+  51   LDA      1
+  53   INPC 
+  54   LDA      1       
+  56   LDV
+  57   LDC      46
+  59   CNE
+  60   BZE      88        
+  62   LDA 		2
+  64   LDV
+  65   LDA 		1
+  67   LDV 
+  68   LDXA 
+  69   LDA 		2
+  71   LDV
+  72   LDA 		1
+  74   LDV
+  75   LDXA 
+  76   LDV   
+  77   LDC      1
+  79   ADD
+  80   STO  
+  81   PRNS     "Next character, \n "
+  83   LDA      1
+  85   INPC 
+  86   BRN      54        
+  88   LDA 		1         
+  90   LDC      65
+  92   STO
+  93   LDA      1      
+  95   LDV 
+  96   LDC      90
+  98   CLE 
+  99   BZE      142      
+ 101   LDA 		2
+ 103   LDV
+ 104   LDA 		1
+ 106   LDV 
+ 107   LDXA 
+ 108   LDV
+ 109   LDC 		0
+ 111   CGT   
+ 112   BZE      131      
+ 114   LDA      1
+ 116   LDV     
+ 117   PRNC    
+ 118   PRNS     "  "
+ 120   LDA 		2
+ 122   LDV
+ 123   LDA 		1
+ 125   LDV 
+ 126   LDXA
+ 127   LDV
+ 128   PRNC 
+ 129   PRNS     " \n"
+ 131   LDA      1           
+ 133   LDA      1
+ 135   LDV      
+ 136   LDC      1
+ 138   ADD
+ 139   STO
+ 140   BRN 		93            
+ 142   HALT   
