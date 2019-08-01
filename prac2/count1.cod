@@ -1,0 +1,75 @@
+ASSEM
+BEGIN
+  {    0 } DSP      4
+  {    2 } PRNS     "What is the largest item you will add to the list? (<35000)"
+  {    4 } LDA_0   
+  {    5 } INPI    
+  {    6 } LDL_0   
+  {    7 } INC     
+  {    8 } STL_0   
+  {    9 } LDL_0   
+  {   10 } ANEW    
+  {   11 } STL_2   
+  {   12 } LDC_0   
+  {   13 } STL_3   
+  {   14 } LDL_3   
+  {   15 } LDL_0   
+  {   16 } CLT     
+  {   17 } BZE      29
+  {   19 } LDL_2   
+  {   20 } LDL_3   
+  {   21 } LDXA    
+  {   22 } LDC_0   
+  {   23 } STO     
+  {   24 } LDL_3   
+  {   25 } INC     
+  {   26 } STL_3   
+  {   27 } BRN      14
+  {   29 } PRNS     "First number? "
+  {   31 } LDA_1   
+  {   32 } INPI    
+  {   33 } LDL_1   
+  {   34 } LDC_0   
+  {   35 } CGT     
+  {   36 } BZE      53
+  {   38 } LDL_2   
+  {   39 } LDL_1   
+  {   40 } LDXA    
+  {   41 } LDL_2   
+  {   42 } LDL_1   
+  {   43 } LDXA    
+  {   44 } LDV     
+  {   45 } INC     
+  {   46 } STO     
+  {   47 } PRNS     "Next number(<= 0 Stops), \n "
+  {   49 } LDA_1   
+  {   50 } INPI    
+  {   51 } BRN      33
+  {   53 } LDC_0   
+  {   54 } STL_3   
+  {   55 } LDL_3   
+  {   56 } LDL_0   
+  {   57 } CLT     
+  {   58 } BZE      83
+  {   60 } LDL_2   
+  {   61 } LDL_3   
+  {   62 } LDXA    
+  {   63 } LDV     
+  {   64 } LDC_0   
+  {   65 } CGT     
+  {   66 } BZE      79
+  {   68 } LDL_3   
+  {   69 } PRNI    
+  {   70 } PRNS     "  "
+  {   72 } LDL_2   
+  {   73 } LDL_3   
+  {   74 } LDXA    
+  {   75 } LDV     
+  {   76 } PRNI    
+  {   77 } PRNS     " \n"
+  {   79 } LDL_3   
+  {   80 } INC     
+  {   81 } STL_3   
+  {   82 } BRN      55
+  {   84 } HALT    
+END.

@@ -1,0 +1,72 @@
+   0   DSP      4        ;Limit,item,count[] and i are 1,2,3,4 respectively
+   2   PRNS     "What is the largest item you will add to the list? (<35000)"
+   4   LDA_0
+   5   INPI         ; max number to be tested
+   6   LDL_0        
+   7   INC           ;limit = max number +1
+   8   STL_0    
+   9   LDL_0          
+  10   ANEW 
+  11   STL_2          ;int[] count = new int[limit]
+  12   LDC_0
+  13   STL_3           ;i = 0
+  14   LDL_3           ;load i
+  15   LDL_0           ;load limit
+  16   CLT             ;if (i<limit) continue
+  17   BZE      29     ; else branch 
+  19   LDL_2           
+  20   LDL_3
+  21   LDXA 
+  22   LDC_0           
+  23   STO              ;count[i] = 0
+  24   LDL_3
+  25   INC
+  26   STL_3            ; i++
+  27   BRN 		14      ;continue with while loop (i<limit)
+  29   PRNS     "First number? "       
+  31   LDA_1
+  32   INPI                  ;read first number      
+  33   LDL_1                
+  34   LDC_0
+  35   CGT                 ;while (item > 0) continue
+  36   BZE      53         ;if false branch
+  38   LDL_2
+  39   LDL_1
+  40   LDXA 
+  41   LDL_2
+  42   LDL_1
+  43   LDXA 
+  44   LDV   
+  45   INC
+  46   STO                 ; count[item] = count[item] +1;
+  47   PRNS     "Next number(<= 0 Stops), \n "
+  49   LDA_1
+  50   INPI                 ;read another number
+  51   BRN      33           ;loop until negative number is read   
+  53   LDC_0
+  54   STL_3                   ;i=0
+  55   LDL_3      
+  56   LDL_0 
+  57   CLT                     ;while (i< limit) continue
+  58   BZE      83             ;if false branch
+  60   LDL_2
+  61   LDL_3
+  62   LDXA 
+  63   LDV
+  64   LDC_0
+  65   CGT                     ;if (count[i]>0) 
+  66   BZE      79             ;if false skip line and continue with the loop
+  68   LDL_3    
+  69   PRNI                     ;print i
+  70   PRNS     "  "
+  72   LDL_2
+  73   LDL_3 
+  74   LDXA
+  75   LDV
+  76   PRNI                     ; print count[i]
+  77   PRNS     " \n"          
+  79   LDL_3
+  80   INC
+  81   STL_3                     ; i++
+  82   BRN 		55               ;continue with loop until i <limit
+  83   HALT   

@@ -1,0 +1,75 @@
+ASSEM
+BEGIN
+  {    0 } DSP      4
+  {    2 } LDC      256
+  {    4 } STL_0   
+  {    5 } LDL_0   
+  {    6 } ANEW    
+  {    7 } STL_2   
+  {    8 } LDC_0   
+  {    9 } STL_3   
+  {   10 } LDL_3   
+  {   11 } LDL_0   
+  {   12 } CLT     
+  {   13 } BZE      26
+  {   15 } LDL_2   
+  {   16 } LDL_3   
+  {   17 } LDXA    
+  {   18 } LDC_0   
+  {   19 } STO     
+  {   20 } LDL_3   
+  {   21 } LDC_1   
+  {   22 } ADD     
+  {   23 } STL_3   
+  {   24 } BRN      10
+  {   26 } PRNS     "First Char? "
+  {   28 } LDA_1   
+  {   29 } INPC    
+  {   30 } LDL_1   
+  {   31 } CAP     
+  {   32 } STL_1   
+  {   33 } LDL_1   
+  {   34 } LDC      46
+  {   36 } CNE     
+  {   37 } BZE      54
+  {   39 } LDL_2   
+  {   40 } LDL_1   
+  {   41 } LDXA    
+  {   42 } LDL_2   
+  {   43 } LDL_1   
+  {   44 } LDXA    
+  {   45 } LDV     
+  {   46 } INC     
+  {   47 } STO     
+  {   48 } PRNS     "Next character, \n "
+  {   50 } LDA_1   
+  {   51 } INPC    
+  {   52 } BRN      30
+  {   54 } LDC      90
+  {   56 } STL_1   
+  {   57 } LDL_1   
+  {   58 } LDC      65
+  {   60 } CGE     
+  {   61 } BZE      87
+  {   63 } LDL_2   
+  {   64 } LDL_1   
+  {   65 } LDXA    
+  {   66 } LDV     
+  {   67 } LDC_0   
+  {   68 } CGT     
+  {   69 } BZE      82
+  {   71 } LDL_1   
+  {   72 } PRNC    
+  {   73 } PRNS     "  "
+  {   75 } LDL_2   
+  {   76 } LDL_1   
+  {   77 } LDXA    
+  {   78 } LDV     
+  {   79 } PRNI    
+  {   80 } PRNS     " \n"
+  {   82 } LDL_1   
+  {   83 } DEC     
+  {   84 } STL_1   
+  {   85 } BRN      57
+  {   87 } HALT    
+END.
