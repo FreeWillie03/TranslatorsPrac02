@@ -481,8 +481,14 @@ namespace Assem {
             tos = Pop(); Push(Pop() * tos);
             break;
           case PVM.div:           // integer division (quotient)
-            tos = Pop(); Push(Pop() / tos);
-            break;
+              tos = Pop();
+              if (tos != 0) {
+              Push(Pop() / tos);
+              }
+              else {
+              results.Write("You cannot divide by 0!");
+              }
+              break;
           case PVM.rem:           // integer division (remainder)
             tos = Pop(); Push(Pop() % tos);
             break;
