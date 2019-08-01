@@ -428,7 +428,19 @@ namespace Assem {
             tos = mem[cpu.sp++]; mem[cpu.sp] -= tos;
             break;
           case PVM.mul:           // integer multiplication
-            tos = mem[cpu.sp++]; mem[cpu.sp] *= tos;
+
+            tos = mem[cpu.sp++];
+            int check = mem[cpu.sp] * tos;
+            if(check/tos == mem[cpu.sp])
+                        {
+                            mem[cpu.sp] =mem[cpu.sp] * tos;
+                        }
+                        else
+                        {
+                            results.Write("\nOverflow error when multiplying\n");
+                        }
+                        
+                        
             break;
           case PVM.div:           // integer division (quotient)
             tos = mem[cpu.sp++]; mem[cpu.sp] /= tos;
